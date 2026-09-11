@@ -37,7 +37,7 @@ export function CustomCursor() {
     const move = (event: globalThis.MouseEvent) => { x = event.clientX; y = event.clientY; };
     const over = (event: globalThis.MouseEvent) => {
       const target = (event.target as HTMLElement).closest<HTMLElement>("[data-cursor]");
-      setLabel(target?.dataset.cursor === "project" ? "VIEW" : target ? "↗" : "");
+      setLabel(target?.dataset["cursor"] === "project" ? "VIEW" : target ? "↗" : "");
     };
     window.addEventListener("mousemove", move); window.addEventListener("mouseover", over); frame = requestAnimationFrame(tick);
     return () => { window.removeEventListener("mousemove", move); window.removeEventListener("mouseover", over); cancelAnimationFrame(frame); };
